@@ -52,6 +52,7 @@ table {
 }
 body {
     font-family: 'Raleway', sans-serif;
+	background-color: #8C11BE;
 }
 main {
     display: flex;
