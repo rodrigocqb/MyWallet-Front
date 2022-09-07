@@ -3,10 +3,11 @@ import { LoggedTitle } from "../common/LoggedTitle";
 import { IoAddCircleOutline, IoRemoveCircleOutline } from "react-icons/io5";
 import Exit from "../img/exit.svg";
 import { Link } from "react-router-dom";
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
 export default function Statement() {
   const transactions = [];
+  const { t } = useTranslation();
   return (
     <main>
       <LoggedTitle>
