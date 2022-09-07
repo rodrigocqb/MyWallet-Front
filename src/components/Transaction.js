@@ -31,7 +31,7 @@ export default function Transaction() {
         </LoggedTitle>
         <Form onSubmit={handleSubmit}>
           <input
-            placeholder="Valor"
+            placeholder={t("value")}
             type="number"
             step="0.01"
             name="value"
@@ -44,7 +44,7 @@ export default function Transaction() {
             required
           />
           <input
-            placeholder="Descrição"
+            placeholder={t("description")}
             type="text"
             name="description"
             onChange={(e) =>
@@ -56,7 +56,7 @@ export default function Transaction() {
             required
           />
           <button type="submit">
-            {location === "/new-receipt" ? "Salvar entrada" : "Salvar saída"}
+            {location === "/new-receipt" ? t("saveReceipt") : t("savePayment")}
           </button>
         </Form>
       </main>

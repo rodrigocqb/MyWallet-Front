@@ -11,5 +11,9 @@
   "hello": "Olá,",
   "noTransactions": "Não há registros de entrada ou saída",
   "newReceipt": "Nova entrada",
-  "newPayment": "Nova saída"
+  "newPayment": "Nova saída",
+  "value": "Valor",
+  "description": "Descrição",
+  "saveReceipt": "Salvar entrada",
+  "savePayment": "Salvar saída"
 }

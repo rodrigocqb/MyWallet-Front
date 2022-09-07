@@ -11,5 +11,9 @@
   "hello": "Hello,",
   "noTransactions": "There are no registered transactions",
   "newReceipt": "New receipt",
-  "newPayment": "New payment"
+  "newPayment": "New payment",
+  "value": "Value",
+  "description": "Description",
+  "saveReceipt": "Save receipt",
+  "savePayment": "Save payment"
 }
