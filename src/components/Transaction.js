@@ -26,7 +26,7 @@ export default function Transaction() {
   if (location === "/new-payment" || location === "/new-receipt") {
     return (
       <main>
-        <LoggedTitle>
+        <LoggedTitle transaction={true}>
           {location === "/new-receipt" ? t("newReceipt") : t("newPayment")}
         </LoggedTitle>
         <Form onSubmit={handleSubmit}>

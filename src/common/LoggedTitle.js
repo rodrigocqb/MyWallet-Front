@@ -8,6 +8,7 @@ export const LoggedTitle = styled.div`
   color: #ffffff;
   display: flex;
   justify-content: space-between;
+  margin-bottom: ${(props) => (props.transaction ? "18px" : "0")};
   img {
     width: 23px;
     height: 24px;
