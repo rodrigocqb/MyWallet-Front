@@ -6,5 +6,6 @@
   "name": "Name",
   "signUp": "Sign up",
   "confirmPassword": "Confirm your password",
-  "login": "Already have an account? Log in!"
+  "login": "Already have an account? Log in!",
+  "differentPasswords": "The passwords are not the same!"
 }

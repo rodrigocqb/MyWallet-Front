@@ -27,7 +27,10 @@ export default function SignUp() {
   function handleSubmit(e) {
     e.preventDefault();
     console.log(form);
-    navigate("/login");
+    if (form.confirmPassword !== form.password) {
+      return alert(t("differentPasswords"));
+    }
+    navigate("/");
   }
 
   return (

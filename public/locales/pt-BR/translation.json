@@ -6,5 +6,6 @@
   "name": "Nome",
   "signUp": "Cadastrar",
   "confirmPassword": "Confirme a senha",
-  "login": "Já tem uma conta? Entre agora!"
+  "login": "Já tem uma conta? Entre agora!",
+  "differentPasswords": "As senhas não são as mesmas!"
 }
