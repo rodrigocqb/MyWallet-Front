@@ -3,33 +3,34 @@ import { LoggedTitle } from "../common/LoggedTitle";
 import { IoAddCircleOutline, IoRemoveCircleOutline } from "react-icons/io5";
 import Exit from "../img/exit.svg";
 import { Link } from "react-router-dom";
+import { t } from "i18next";
 
 export default function Statement() {
   const transactions = [];
   return (
     <main>
       <LoggedTitle>
-        <h1>Olá, fulano</h1>
+        <h1>{`${t("hello")} fulano`}</h1>
         <img src={Exit} alt="" />
       </LoggedTitle>
       <StatementSection transactions={transactions.length}>
         {transactions.length ? (
           transactions.map(() => <></>)
         ) : (
-          <NoTransactions>Não há registros de entrada ou saída</NoTransactions>
+          <NoTransactions>{t("noTransactions")}</NoTransactions>
         )}
       </StatementSection>
       <NewTransactions>
-        <Link to="/new-payment">
-          <button>
-            <IoAddCircleOutline />
-            <p>Nova entrada</p>
-          </button>
-        </Link>
         <Link to="/new-receipt">
           <button>
+            <IoAddCircleOutline />
+            <p>{t("newReceipt")}</p>
+          </button>
+        </Link>
+        <Link to="/new-payment">
+          <button>
             <IoRemoveCircleOutline />
-            <p>Nova saída</p>
+            <p>{t("newPayment")}</p>
           </button>
         </Link>
       </NewTransactions>
