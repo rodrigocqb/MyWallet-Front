@@ -13,12 +13,12 @@ export const Form = styled.form`
     width: 100%;
     max-width: 400px;
     height: 58px;
-    background-color: #ffffff;
+    background-color: ${(props) => (props.disabled ? "#F2F2F2" : "#FFFFFF")};
     border-radius: 5px;
     outline: none;
     font-size: 20px;
     padding-left: 15px;
-    color: #000000;
+    color: ${(props) => (props.disabled ? "#AFAFAF" : "#000000")};
     border: 0px;
     font-weight: 400;
     &::placeholder {
@@ -39,5 +39,6 @@ export const Form = styled.form`
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: ${(props) => (props.disabled ? 0.7 : 1)};
   }
 `;

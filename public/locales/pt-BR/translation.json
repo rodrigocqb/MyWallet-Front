@@ -7,6 +7,7 @@
   "signUp": "Cadastrar",
   "confirmPassword": "Confirme a senha",
   "login": "Já tem uma conta? Entre agora!",
+  "loginError": "Houve um erro no seu login.\nTente reinserir os dados caso já possua um cadastro!",
   "differentPasswords": "As senhas não são as mesmas!",
   "hello": "Olá,",
   "noTransactions": "Não há registros de entrada ou saída",

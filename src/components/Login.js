@@ -1,16 +1,25 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { ThreeDots } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Form } from "../common/Form";
+import UserContext from "../contexts/UserContext";
+import { useLocal } from "../hooks/useLocal";
+import { postLogin } from "../services/mywallet";
 import { LanguageSelect } from "./LanguageSelect";
 
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
+  const [disabled, setDisabled] = useState(false);
+
+  useLocal();
 
   const { t } = useTranslation();
 
   const navigate = useNavigate();
+
+  const { setUser } = useContext(UserContext);
 
   function handleForm({ value, name }) {
     setForm({
@@ -21,15 +30,25 @@ export default function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(form);
-    navigate("/statement");
+    setDisabled(true);
+    postLogin(form)
+      .then((res) => {
+        setUser(res.data);
+        localStorage.setItem("user", JSON.stringify(res.data));
+        navigate("/statement");
+      })
+      .catch((err) => {
+        console.log(err);
+        alert(t("loginError"));
+        setDisabled(false);
+      });
   }
 
   return (
     <main>
       <Title>MyWallet</Title>
       <LanguageSelect />
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} disabled={disabled}>
         <input
           placeholder="E-mail"
           type="email"
@@ -40,6 +59,7 @@ export default function Login() {
               name: e.target.name,
             })
           }
+          disabled={disabled}
           required
         />
         <input
@@ -52,9 +72,21 @@ export default function Login() {
               name: e.target.name,
             })
           }
+          disabled={disabled}
           required
         />
-        <button type="submit">{t("enter")}</button>
+        <button type="submit" disabled={disabled}>
+          {disabled ? (
+            <ThreeDots
+              height="13"
+              width="51"
+              color="#FFFFFF"
+              ariaLabel="three-dots-loading"
+            />
+          ) : (
+            <p>{t("enter")}</p>
+          )}
+        </button>
       </Form>
       <Link to="/sign-up">
         <Span>{t("signUpLink")}</Span>
