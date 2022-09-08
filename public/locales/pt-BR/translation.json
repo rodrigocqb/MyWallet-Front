@@ -5,6 +5,7 @@
   "language": "Língua:",
   "name": "Nome",
   "signUp": "Cadastrar",
+  "signUpError": "Houve um erro no seu cadastro.\nTente reinserir os dados caso não possua um cadastro!\nSe já possuir, faça login!",
   "confirmPassword": "Confirme a senha",
   "login": "Já tem uma conta? Entre agora!",
   "loginError": "Houve um erro no seu login.\nTente reinserir os dados caso já possua um cadastro!",

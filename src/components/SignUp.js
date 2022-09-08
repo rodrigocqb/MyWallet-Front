@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { ThreeDots } from "react-loader-spinner";
 import { Link, useNavigate } from "react-router-dom";
 import { Form } from "../common/Form";
+import { postSignUp } from "../services/mywallet";
 import { LanguageSelect } from "./LanguageSelect";
 import { Span, Title } from "./Login";
 
@@ -12,6 +14,7 @@ export default function SignUp() {
     password: "",
     confirmPassword: "",
   });
+  const [disabled, setDisabled] = useState(false);
 
   const { t } = useTranslation();
 
@@ -26,18 +29,26 @@ export default function SignUp() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(form);
     if (form.confirmPassword !== form.password) {
       return alert(t("differentPasswords"));
     }
-    navigate("/");
+    setDisabled(true);
+    postSignUp(form)
+      .then((res) => {
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err);
+        alert(t("signUpError"));
+        setDisabled(false);
+      });
   }
 
   return (
     <main>
       <Title>MyWallet</Title>
       <LanguageSelect />
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} disabled={disabled}>
         <input
           placeholder={t("name")}
           type="text"
@@ -48,6 +59,7 @@ export default function SignUp() {
               name: e.target.name,
             })
           }
+          disabled={disabled}
           required
         />
         <input
@@ -60,6 +72,7 @@ export default function SignUp() {
               name: e.target.name,
             })
           }
+          disabled={disabled}
           required
         />
         <input
@@ -72,6 +85,7 @@ export default function SignUp() {
               name: e.target.name,
             })
           }
+          disabled={disabled}
           required
         />
         <input
@@ -84,9 +98,21 @@ export default function SignUp() {
               name: e.target.name,
             })
           }
+          disabled={disabled}
           required
         />
-        <button type="submit">{t("signUp")}</button>
+        <button type="submit" disabled={disabled}>
+          {disabled ? (
+            <ThreeDots
+              height="13"
+              width="51"
+              color="#FFFFFF"
+              ariaLabel="three-dots-loading"
+            />
+          ) : (
+            <p>{t("signUp")}</p>
+          )}
+        </button>
       </Form>
       <Link to="/">
         <Span>{t("login")}</Span>
