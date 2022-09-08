@@ -16,5 +16,6 @@
   "value": "Value",
   "description": "Description",
   "saveReceipt": "Save receipt",
-  "savePayment": "Save payment"
+  "savePayment": "Save payment",
+  "pleaseLogIn": "Please log in before entering this page"
 }
