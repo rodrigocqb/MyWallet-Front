@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { Oval } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import UserContext from "../contexts/UserContext";
@@ -14,12 +15,15 @@ export default function UserTransaction({
   refresh,
   setRefresh,
 }) {
+  const [loader, setLoader] = useState(false);
+
   const { user } = useContext(UserContext);
 
   const navigate = useNavigate();
 
   function removeTransaction() {
     if (window.confirm("Quer mesmo apagar essa transação?")) {
+      setLoader(true);
       deleteTransaction(id, user.token)
         .then(() => {
           console.log("deletado!");
@@ -28,6 +32,7 @@ export default function UserTransaction({
         .catch((err) => {
           alert("Houve um erro ao tentar apagar a transação");
           console.log(err);
+          setLoader(false);
         });
     }
   }
@@ -50,7 +55,16 @@ export default function UserTransaction({
       </div>
       <div>
         <p>{value.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</p>
-        <div onClick={removeTransaction}>x</div>
+        {!loader ? (
+          <div onClick={removeTransaction}>x</div>
+        ) : (
+          <Oval
+            height="12"
+            width="12"
+            color="#c6c6c6"
+            ariaLabel="three-dots-loading"
+          />
+        )}
       </div>
     </TransactionWrapper>
   );
