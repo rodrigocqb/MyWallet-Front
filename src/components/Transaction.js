@@ -1,13 +1,20 @@
+import { useContext } from "react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Form } from "../common/Form";
 import { LoggedTitle } from "../common/LoggedTitle";
+import UserContext from "../contexts/UserContext";
+import { postTransaction } from "../services/mywallet";
 
 export default function Transaction() {
   const [form, setForm] = useState({ value: 0, description: "" });
 
   const location = useLocation().pathname;
+
+  const { user } = useContext(UserContext);
+
+  const navigate = useNavigate();
 
   const { t } = useTranslation();
 
@@ -20,7 +27,21 @@ export default function Transaction() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(form);
+    let type;
+    if (location === "/new-receipt") {
+      type = "receipt";
+    } else {
+      type = "payment";
+    }
+    const value = Number(form.value);
+    postTransaction({ ...form, value, type }, user.token)
+      .then((res) => {
+        navigate("/statement");
+      })
+      .catch((err) => {
+        alert("Houve um erro ao salvar sua transação");
+        console.log(err);
+      });
   }
 
   if (location === "/new-payment" || location === "/new-receipt") {
