@@ -39,7 +39,7 @@ export default function Transaction() {
   function handleSubmit(e) {
     e.preventDefault();
     let type;
-    if (location === "/new-receipt" || location === "edit-receipt") {
+    if (location === "/new-receipt" || location === "/edit-receipt") {
       type = "receipt";
     } else {
       type = "payment";
