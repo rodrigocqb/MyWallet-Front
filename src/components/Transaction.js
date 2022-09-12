@@ -10,6 +10,7 @@ import { postTransaction, updateTransaction } from "../services/mywallet";
 
 export default function Transaction() {
   const [form, setForm] = useState({ value: 0, description: "" });
+  const [disabled, setDisabled] = useState(false);
 
   const location = useLocation().pathname;
 
@@ -38,6 +39,7 @@ export default function Transaction() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    setDisabled(true);
     let type;
     if (location === "/new-receipt" || location === "/edit-receipt") {
       type = "receipt";
@@ -53,6 +55,7 @@ export default function Transaction() {
         .catch((err) => {
           alert("Houve um erro ao salvar sua transação");
           console.log(err);
+          setDisabled(false);
         });
     } else {
       updateTransaction(id, { ...form, value, type }, user.token)
@@ -62,6 +65,7 @@ export default function Transaction() {
         .catch((err) => {
           alert("Houve um erro ao salvar sua transação");
           console.log(err);
+          setDisabled(false);
         });
     }
   }
@@ -72,7 +76,7 @@ export default function Transaction() {
         <LoggedTitle transaction={true}>
           {location === "/new-receipt" ? t("newReceipt") : t("newPayment")}
         </LoggedTitle>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} disabled={disabled}>
           <input
             placeholder={t("value")}
             type="number"
@@ -84,6 +88,7 @@ export default function Transaction() {
                 name: e.target.name,
               })
             }
+            disabled={disabled}
             required
           />
           <input
@@ -96,9 +101,10 @@ export default function Transaction() {
                 name: e.target.name,
               })
             }
+            disabled={disabled}
             required
           />
-          <button type="submit">
+          <button type="submit" disabled={disabled}>
             {location === "/new-receipt" ? t("saveReceipt") : t("savePayment")}
           </button>
         </Form>
