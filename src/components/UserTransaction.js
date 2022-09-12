@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 import { useContext, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Oval } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -21,16 +22,17 @@ export default function UserTransaction({
 
   const navigate = useNavigate();
 
+  const { t, i18n } = useTranslation();
+
   function removeTransaction() {
-    if (window.confirm("Quer mesmo apagar essa transação?")) {
+    if (window.confirm(t("deleteTransaction"))) {
       setLoader(true);
       deleteTransaction(id, user.token)
         .then(() => {
-          console.log("deletado!");
           setRefresh(!refresh);
         })
         .catch((err) => {
-          alert("Houve um erro ao tentar apagar a transação");
+          alert(t("deleteTransactionError"));
           console.log(err);
           setLoader(false);
         });
@@ -40,7 +42,11 @@ export default function UserTransaction({
   return (
     <TransactionWrapper type={type}>
       <div>
-        <span>{dayjs(date).format("DD/MM")}</span>
+        <span>
+          {i18n.resolvedLanguage === "pt-BR"
+            ? dayjs(date).format("DD/MM")
+            : dayjs(date).format("MM/DD")}
+        </span>
         <h2
           onClick={() => {
             if (type === "receipt") {
@@ -54,7 +60,11 @@ export default function UserTransaction({
         </h2>
       </div>
       <div>
-        <p>{value.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</p>
+        <p>
+          {i18n.resolvedLanguage === "pt-BR"
+            ? value.toLocaleString("pt-BR", { minimumFractionDigits: 2 })
+            : value.toFixed(2)}
+        </p>
         {!loader ? (
           <div onClick={removeTransaction}>x</div>
         ) : (

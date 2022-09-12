@@ -19,5 +19,13 @@
   "saveReceipt": "Save receipt",
   "savePayment": "Save payment",
   "pleaseLogIn": "Please log in before entering this page",
-  "logout": "Are you sure you wish to log out?"
+  "logout": "Are you sure you wish to log out?",
+  "getTransactionsError": "There was an error when trying to load your transactions.\nTry again later.",
+  "balance": "BALANCE",
+  "editReceipt": "Edit receipt",
+  "editPayment": "Edit payment",
+  "updateReceipt": "Update receipt",
+  "updatePayment": "Update payment",
+  "deleteTransaction": "Are you sure you want to delete this transaction?",
+  "deleteTransactionError": "There was an error when trying to delete the transaction."
 }

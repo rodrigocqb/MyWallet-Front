@@ -128,7 +128,7 @@ export default function Transaction() {
     return (
       <main>
         <LoggedTitle transaction={true}>
-          {location === "/edit-receipt" ? "Editar entrada" : "Editar saída"}
+          {location === "/edit-receipt" ? t("editReceipt") : t("editPayment")}
         </LoggedTitle>
         <Form onSubmit={handleSubmit}>
           <input
@@ -159,9 +159,9 @@ export default function Transaction() {
             required
           />
           <button type="submit">
-            {location === "/new-receipt"
-              ? "Atualizar entrada"
-              : "Atualizar saída"}
+            {location === "/edit-receipt"
+              ? t("updateReceipt")
+              : t("updatePayment")}
           </button>
         </Form>
       </main>

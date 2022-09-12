@@ -27,9 +27,7 @@ export default function Statement() {
         setTransactions(res.data);
       })
       .catch((err) => {
-        alert(
-          "Ocorreu um erro ao carregar suas transações.\nTente novamente mais tarde."
-        );
+        alert(t("getTransactionsError"));
       });
   }, [setTransactions, user.token, refresh]);
 
@@ -80,7 +78,7 @@ export default function Statement() {
         </TransactionsWrapper>
         {transactions.length !== 0 && (
           <Balance balance={balance}>
-            <p>SALDO</p>
+            <p>{t("balance")}</p>
             <p>
               {balance.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}
             </p>
