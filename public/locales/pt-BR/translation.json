@@ -18,5 +18,6 @@
   "description": "Descrição",
   "saveReceipt": "Salvar entrada",
   "savePayment": "Salvar saída",
-  "pleaseLogIn": "Por favor, faça login antes de acessar essa página"
+  "pleaseLogIn": "Por favor, faça login antes de acessar essa página",
+  "logout": "Tem certeza que deseja fazer logout?"
 }
