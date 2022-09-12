@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { ThreeDots } from "react-loader-spinner";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Form } from "../common/Form";
 import { LoggedTitle } from "../common/LoggedTitle";
@@ -105,7 +106,20 @@ export default function Transaction() {
             required
           />
           <button type="submit" disabled={disabled}>
-            {location === "/new-receipt" ? t("saveReceipt") : t("savePayment")}
+            {disabled ? (
+              <ThreeDots
+                height="13"
+                width="51"
+                color="#FFFFFF"
+                ariaLabel="three-dots-loading"
+              />
+            ) : (
+              <p>
+                {location === "/new-receipt"
+                  ? t("saveReceipt")
+                  : t("savePayment")}
+              </p>
+            )}
           </button>
         </Form>
       </main>

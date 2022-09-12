@@ -78,7 +78,7 @@ export default function Statement() {
             <NoTransactions>{t("noTransactions")}</NoTransactions>
           )}
         </TransactionsWrapper>
-        {transactions.length && (
+        {transactions.length !== 0 && (
           <Balance balance={balance}>
             <p>SALDO</p>
             <p>
@@ -127,6 +127,7 @@ const TransactionsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 22px;
+  align-items: center;
 `;
 
 const NewTransactions = styled.section`
