@@ -9,10 +9,11 @@ import { useContext } from "react";
 import UserContext from "../contexts/UserContext";
 import { getTransactions } from "../services/mywallet";
 import { useState } from "react";
-import UserTransactions from "./UserTransactions";
+import UserTransaction from "./UserTransaction";
 
 export default function Statement() {
   const [transactions, setTransactions] = useState([]);
+  const [refresh, setRefresh] = useState(false);
 
   const { user } = useContext(UserContext);
 
@@ -30,7 +31,7 @@ export default function Statement() {
           "Ocorreu um erro ao carregar suas transações.\nTente novamente mais tarde."
         );
       });
-  }, [setTransactions, user.token]);
+  }, [setTransactions, user.token, refresh]);
 
   let balance = 0;
   transactions.forEach((value) => {
@@ -61,13 +62,15 @@ export default function Statement() {
           {transactions.length ? (
             transactions.map((value) => (
               <>
-                <UserTransactions
+                <UserTransaction
                   key={value.id}
                   id={value.id}
                   type={value.type}
                   description={value.description}
                   value={value.value}
                   date={value.date}
+                  refresh={refresh}
+                  setRefresh={setRefresh}
                 />
               </>
             ))
@@ -170,6 +173,6 @@ const Balance = styled.div`
     font-weight: 700;
   }
   p:nth-child(2) {
-    color: ${(props) => (props.balance > 0 ? "#03AC00" : "#C70000")};
+    color: ${(props) => (props.balance >= 0 ? "#03AC00" : "#C70000")};
   }
 `;

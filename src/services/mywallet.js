@@ -26,4 +26,25 @@ function getTransactions(token) {
   return promise;
 }
 
-export { postLogin, postSignUp, postTransaction, getTransactions };
+function deleteTransaction(id, token) {
+  const promise = axios.delete(`${url}/transactions/${id}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  return promise;
+}
+
+function updateTransaction(id, body, token) {
+  const promise = axios.put(`${url}/transactions/${id}`, body, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  return promise;
+}
+
+export {
+  postLogin,
+  postSignUp,
+  postTransaction,
+  getTransactions,
+  deleteTransaction,
+  updateTransaction,
+};

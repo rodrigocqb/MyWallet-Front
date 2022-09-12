@@ -42,6 +42,22 @@ function App() {
               </PrivatePage>
             }
           />
+          <Route
+            path="/edit-payment"
+            element={
+              <PrivatePage>
+                <Transaction />
+              </PrivatePage>
+            }
+          />
+          <Route
+            path="/edit-receipt"
+            element={
+              <PrivatePage>
+                <Transaction />
+              </PrivatePage>
+            }
+          />
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>
