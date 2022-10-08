@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# MyWallet
+An easy to use financial manager. Track your revenues and expenses to learn how you spend your money and know all the time how much you have.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Screencast from 06-10-2022 15:40:29.webm](https://user-images.githubusercontent.com/106849571/194721252-172f3609-6a47-45c8-8e0c-357ea681a3b2.webm)
 
-## Available Scripts
+## About
+This is an web application with which lots of people can manage their own expenses and revenues. Below are the implemented features:
 
-In the project directory, you can run:
+- Sign Up
+- Login
+- List all transactions for a user
+- Add payment
+- Add receipt
+- Edit payment
+- Edit receipt
+- Delete transaction
+- Logout
+- Translation and language select using i18next
 
-### `npm start`
+By using this app any user can learn how they've been using their money and always keep track of their balance.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies
+The following tools and frameworks were used in the construction of the front end of this project:
+<p>
+  <img style='margin: 5px;' src="https://img.shields.io/badge/react-app%20-%2320232a.svg?&style=for-the-badge&color=60ddf9&logo=react&logoColor=%2361DAFB"/>
+  <img style='margin: 5px;' src='https://img.shields.io/badge/styled-components%20-%2320232a.svg?&style=for-the-badge&color=b8679e&logo=styled-components&logoColor=%3a3a3a'>
+  <img style='margin: 5px;' src='https://img.shields.io/badge/React_Router-20232A?style=for-the-badge&logo=react-router&logoColor=white'>
+  <img style='margin: 5px;' src='https://img.shields.io/badge/axios%20-%2320232a.svg?&style=for-the-badge&color=informational'>
+  <img style='margin: 5px;' src="https://img.shields.io/badge/react-i18next%20-%2320232a.svg?&style=for-the-badge&color=019688&logo=react&logoColor=%2361DAFB"/>
+  <img style='margin: 5px;' src="https://img.shields.io/badge/react-loader%20spinner%20-%2320232a.svg?&style=for-the-badge&color=60ddf9&logo=react&logoColor=%2361DAFB"/>
+  <img style='margin: 5px;' src='https://img.shields.io/badge/dayjs%20-%2320232a.svg?&style=for-the-badge&color=FF5F4C'>
+  <img style='margin: 5px;' src='https://img.shields.io/badge/react-icons-%23563D7C.svg?style=for-the-badge&logo=react&logoColor=60ddf9'>
+</p>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## How to run
+The following tools and frameworks were used in the construction of the back end of this project:
+1. Create a root project folder called MyWallet
+```bash
+mkdir MyWallet
+```
+2. Clone this repository
+3. Clone the back end repository at https://github.com/rodrigocqb/MyWallet-Back
+4. Follow the instructions to run the back end at https://github.com/rodrigocqb/MyWallet-Back
+5. Install dependencies
+```bash
+npm i
+```
+6. Run the project
+```bash
+npm start
+```
+7. You can optionally build the project with
+```bash
+npm run build
+```
+8. Finally access http://localhost:3000 on any browser
