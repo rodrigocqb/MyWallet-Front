@@ -33,7 +33,6 @@ The following tools and frameworks were used in the construction of the front en
 </p>
 
 ## How to run
-The following tools and frameworks were used in the construction of the back end of this project:
 1. Create a root project folder called MyWallet
 ```bash
 mkdir MyWallet
