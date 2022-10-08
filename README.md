@@ -16,6 +16,7 @@ This is an web application with which lots of people can manage their own expens
 - Delete transaction
 - Logout
 - Translation and language select using i18next
+- Persistent login
 
 By using this app any user can learn how they've been using their money and always keep track of their balance.
 
